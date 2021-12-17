@@ -22,7 +22,7 @@ export const useEmailForm = () => {
         onSubmit: (values) => {
             
             console.log('values', values);
-            if (values.email) navigate('/enroll/password', {state: values.email});
+            if (values.email) navigate('/signup/password', {state: values.email});
         },
     });
 
