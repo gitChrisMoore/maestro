@@ -1,11 +1,3 @@
-
-
-export function Confirm () {
-
-
-    return (
-        <>
-            hi
-        </>
-    );  
-};
+export function Confirm() {
+    return <>hi</>;
+}

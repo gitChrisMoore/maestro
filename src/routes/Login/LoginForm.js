@@ -1,13 +1,9 @@
-import {
-    TextField,
-    Button } from '@mui/material/';
-import { useLoginForm } from "./useLoginForm"
+import { TextField, Button } from '@mui/material/';
+import { useLoginForm } from './useLoginForm';
 
 export function LoginForm() {
-    const {
-        formik
-    } = useLoginForm();
-    
+    const { formik } = useLoginForm();
+
     return (
         <form onSubmit={formik.handleSubmit}>
             <TextField
@@ -33,9 +29,14 @@ export function LoginForm() {
                 helperText={formik.touched.password && formik.errors.password}
             />
 
-            <Button color="primary" variant="contained" fullWidth type="submit" data-testid="submitLoginForm">
-            Login
+            <Button
+                color="primary"
+                variant="contained"
+                fullWidth
+                type="submit"
+                data-testid="submitLoginForm">
+                Login
             </Button>
         </form>
-    )
+    );
 }

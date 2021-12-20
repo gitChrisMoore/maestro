@@ -1,13 +1,9 @@
-import {
-    TextField,
-    Button } from '@mui/material/';
-import { useAddressForm } from "./useAddressForm"
+import { TextField, Button } from '@mui/material/';
+import { useAddressForm } from './useAddressForm';
 
 export function AddressForm() {
-    const {
-        formik
-    } = useAddressForm();
-    
+    const { formik } = useAddressForm();
+
     return (
         <form onSubmit={formik.handleSubmit}>
             <TextField
@@ -66,9 +62,14 @@ export function AddressForm() {
                 helperText={formik.touched.postalCode && formik.errors.postalCode}
             />
 
-            <Button color="primary" variant="contained" fullWidth type="submit" data-testid="submitAddressForm">
-            Review
+            <Button
+                color="primary"
+                variant="contained"
+                fullWidth
+                type="submit"
+                data-testid="submitAddressForm">
+                Review
             </Button>
         </form>
-    )
-};
+    );
+}

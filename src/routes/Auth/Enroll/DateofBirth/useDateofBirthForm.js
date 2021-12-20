@@ -1,14 +1,12 @@
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 export const useDateofBirthForm = () => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     const validationSchema = yup.object({
-        dateofBirth: yup
-            .date('Enter a valid Birthdate')
-            .required('Birth date is required'),
+        dateofBirth: yup.date('Enter a valid Birthdate').required('Birth date is required')
     });
 
     const formik = useFormik({
@@ -17,12 +15,11 @@ export const useDateofBirthForm = () => {
         },
         validationSchema: validationSchema,
         onSubmit: (values) => {
-            
             if (values) navigate('/enroll/phone');
-        },
+        }
     });
 
     return {
         formik
-    };  
+    };
 };

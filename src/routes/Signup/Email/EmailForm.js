@@ -1,13 +1,9 @@
-import {
-    TextField,
-    Button } from '@mui/material/';
+import { TextField, Button } from '@mui/material/';
 import { useEmailForm } from './useEmailForm';
 
 export function EmailForm() {
-    const {
-        formik
-    } = useEmailForm();
-    
+    const { formik } = useEmailForm();
+
     return (
         <form onSubmit={formik.handleSubmit}>
             <TextField
@@ -22,9 +18,14 @@ export function EmailForm() {
                 helperText={formik.touched.email && formik.errors.email}
             />
 
-            <Button color="primary" variant="contained" fullWidth type="submit" data-testid="submitEmailForm">
-            Let's go
+            <Button
+                color="primary"
+                variant="contained"
+                fullWidth
+                type="submit"
+                data-testid="submitEmailForm">
+                Let&apos;s go
             </Button>
         </form>
-    )
+    );
 }

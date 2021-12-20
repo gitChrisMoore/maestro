@@ -1,18 +1,18 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes } from 'react-router-dom';
 
-import { EmailForm } from "./Email/EmailForm";
-import { PasswordForm } from "./Password/PasswordForm";
+import { EmailForm } from './Email/EmailForm';
+import { PasswordForm } from './Password/PasswordForm';
 
 function Signup() {
-  return (
-    <div>
-        <Routes>
-            <Route path='/' element={<EmailForm/>} />
-            <Route path='email' element={<EmailForm/>} />
-            <Route path='password' element={<PasswordForm/>} /> 
-        </Routes>
-    </div>
-  );
+    return (
+        <div>
+            <Routes>
+                {/* <Route path='/' element={<EmailForm/>} /> */}
+                <Route path="email" element={<EmailForm />} />
+                <Route path="password" element={<PasswordForm />} />
+            </Routes>
+        </div>
+    );
 }
 
 export default Signup;

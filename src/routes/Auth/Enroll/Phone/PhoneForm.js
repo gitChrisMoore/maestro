@@ -1,13 +1,9 @@
-import {
-    TextField,
-    Button } from '@mui/material/';
-import { usePhoneForm } from "./usePhoneForm"
+import { TextField, Button } from '@mui/material/';
+import { usePhoneForm } from './usePhoneForm';
 
 export function PhoneForm() {
-    const {
-        formik
-    } = usePhoneForm();
-    
+    const { formik } = usePhoneForm();
+
     return (
         <form onSubmit={formik.handleSubmit}>
             <TextField
@@ -22,9 +18,14 @@ export function PhoneForm() {
                 helperText={formik.touched.phoneNumber && formik.errors.phoneNumber}
             />
 
-            <Button color="primary" variant="contained" fullWidth type="submit" data-testid="submitPhoneForm">
-            Next
+            <Button
+                color="primary"
+                variant="contained"
+                fullWidth
+                type="submit"
+                data-testid="submitPhoneForm">
+                Next
             </Button>
         </form>
-    )
+    );
 }

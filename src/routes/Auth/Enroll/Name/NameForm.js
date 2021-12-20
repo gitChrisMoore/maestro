@@ -1,13 +1,9 @@
-import {
-    TextField,
-    Button } from '@mui/material/';
-import { useNameForm } from "./useNameForm"
+import { TextField, Button } from '@mui/material/';
+import { useNameForm } from './useNameForm';
 
 export function NameForm() {
-    const {
-        formik
-    } = useNameForm();
-    
+    const { formik } = useNameForm();
+
     return (
         <form onSubmit={formik.handleSubmit}>
             <TextField
@@ -33,9 +29,14 @@ export function NameForm() {
                 helperText={formik.touched.lastName && formik.errors.lastName}
             />
 
-            <Button color="primary" variant="contained" fullWidth type="submit" data-testid="submitDateofBirthForm">
-            Next
+            <Button
+                color="primary"
+                variant="contained"
+                fullWidth
+                type="submit"
+                data-testid="submitDateofBirthForm">
+                Next
             </Button>
         </form>
-    )
+    );
 }

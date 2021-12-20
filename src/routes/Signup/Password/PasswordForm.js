@@ -1,13 +1,9 @@
-import {
-    TextField,
-    Button } from '@mui/material/';
-import { usePasswordForm } from "./usePasswordForm"
+import { TextField, Button } from '@mui/material/';
+import { usePasswordForm } from './usePasswordForm';
 
 export function PasswordForm() {
-    const {
-        formik
-    } = usePasswordForm();
-    
+    const { formik } = usePasswordForm();
+
     return (
         <form onSubmit={formik.handleSubmit}>
             <TextField
@@ -22,9 +18,14 @@ export function PasswordForm() {
                 helperText={formik.touched.password && formik.errors.password}
             />
 
-            <Button color="primary" variant="contained" fullWidth type="submit" data-testid="submitPasswordForm">
-            Next
+            <Button
+                color="primary"
+                variant="contained"
+                fullWidth
+                type="submit"
+                data-testid="submitPasswordForm">
+                Next
             </Button>
         </form>
-    )
+    );
 }

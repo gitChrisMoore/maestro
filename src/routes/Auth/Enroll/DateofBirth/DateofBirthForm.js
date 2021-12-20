@@ -1,13 +1,9 @@
-import {
-    TextField,
-    Button } from '@mui/material/';
-import { useDateofBirthForm } from "./useDateofBirthForm"
+import { TextField, Button } from '@mui/material/';
+import { useDateofBirthForm } from './useDateofBirthForm';
 
 export function DateofBirthForm() {
-    const {
-        formik
-    } = useDateofBirthForm();
-    
+    const { formik } = useDateofBirthForm();
+
     return (
         <form onSubmit={formik.handleSubmit}>
             <TextField
@@ -22,9 +18,14 @@ export function DateofBirthForm() {
                 helperText={formik.touched.dateofBirth && formik.errors.dateofBirth}
             />
 
-            <Button color="primary" variant="contained" fullWidth type="submit" data-testid="submitDateofBirthForm">
-            Next
+            <Button
+                color="primary"
+                variant="contained"
+                fullWidth
+                type="submit"
+                data-testid="submitDateofBirthForm">
+                Next
             </Button>
         </form>
-    )
+    );
 }
