@@ -3,7 +3,9 @@ import { AuthProvider } from "../contexts/Auth"
 
 
 import Signup from "./Signup/Signup"
-import Enroll from "./Enroll/Enroll";
+import Login from "./Login/Login"
+import Enroll from "./Auth/Enroll/Enroll";
+import Dashboard from "./Auth/Dashboard/Dashboard"
 
 
 function App() {
@@ -12,8 +14,14 @@ function App() {
       <Router>
         <AuthProvider>
             <Routes>
-              <Route path='/signup/*' element={<Signup/>} />
-              <Route path='/enroll/*' element={<Enroll/>} />
+              {/* @TODO Replace with Layout */}
+              <Route path="/" element={<Dashboard />}>
+                {/* <Route index element={<Dashboard />} /> */}
+                <Route path='/signup/*' element={<Signup/>} />
+                <Route path='/login/*' element={<Login/>} />
+                <Route path='/enroll/*' element={<Enroll/>} />
+                <Route path='/dashboard/' element={<Dashboard/>} />
+              </Route>
             </Routes>
         </AuthProvider>
       </Router>

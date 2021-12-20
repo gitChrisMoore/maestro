@@ -2,24 +2,23 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { useNavigate } from "react-router-dom";
 
-export const useEmailForm = () => {
+export const usePhoneForm = () => {
     const navigate = useNavigate()
 
     const validationSchema = yup.object({
-        email: yup
-            .string('Enter your email')
-            .email('Enter a valid email')
-            .required('Email is required'),
+        phoneNumber: yup
+            .string()
+            .required()
     });
 
     const formik = useFormik({
         initialValues: {
-            email: ''
+            phoneNumber: ''
         },
         validationSchema: validationSchema,
         onSubmit: (values) => {
             
-            if (values.email) navigate('/signup/password', {state: values.email});
+            if (values) navigate('/enroll/address');
         },
     });
 

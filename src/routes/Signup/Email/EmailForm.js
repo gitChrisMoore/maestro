@@ -13,6 +13,7 @@ export function EmailForm() {
             <TextField
                 fullWidth
                 id="email"
+                data-testid="email"
                 name="email"
                 label="Email"
                 value={formik.values.email}
@@ -21,7 +22,7 @@ export function EmailForm() {
                 helperText={formik.touched.email && formik.errors.email}
             />
 
-            <Button color="primary" variant="contained" fullWidth type="submit">
+            <Button color="primary" variant="contained" fullWidth type="submit" data-testid="submitEmailForm">
             Let's go
             </Button>
         </form>

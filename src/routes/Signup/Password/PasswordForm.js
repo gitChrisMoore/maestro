@@ -13,6 +13,7 @@ export function PasswordForm() {
             <TextField
                 fullWidth
                 id="password"
+                data-testid="password"
                 name="password"
                 label="Password"
                 value={formik.values.password}
@@ -21,7 +22,7 @@ export function PasswordForm() {
                 helperText={formik.touched.password && formik.errors.password}
             />
 
-            <Button color="primary" variant="contained" fullWidth type="submit">
+            <Button color="primary" variant="contained" fullWidth type="submit" data-testid="submitPasswordForm">
             Next
             </Button>
         </form>

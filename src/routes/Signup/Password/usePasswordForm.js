@@ -19,8 +19,7 @@ export const usePasswordForm = () => {
         validationSchema: validationSchema,
         onSubmit: (values) => {
             
-            console.log('values', values);
-            if (values) navigate('/enroll/name');
+            if (values) navigate('/auth/enroll/name');
         },
     });
 

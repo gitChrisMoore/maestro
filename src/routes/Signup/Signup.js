@@ -7,6 +7,7 @@ function Signup() {
   return (
     <div>
         <Routes>
+            <Route path='/' element={<EmailForm/>} />
             <Route path='email' element={<EmailForm/>} />
             <Route path='password' element={<PasswordForm/>} /> 
         </Routes>

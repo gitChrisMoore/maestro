@@ -2,7 +2,7 @@
 
 
 # NPM INStalls
-npm i --save-dev @supabase/supabase-js @mui/material @emotion/react @emotion/styled moment react-router-dom @testing-library/react @mui/icons-material yup formik
+npm i --save-dev @supabase/supabase-js @mui/material @emotion/react @emotion/styled moment react-router-dom @testing-library/react @mui/icons-material yup formik nyc
 
 
 git init
