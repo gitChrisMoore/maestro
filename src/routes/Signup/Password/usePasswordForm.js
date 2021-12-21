@@ -12,25 +12,22 @@ export const usePasswordForm = () => {
     const handleSignup = async (signupDetails) => {
         const { user, error } = await signUp(signupDetails);
         if (error) throw error;
-        if (user) return user;
+        return user;
     };
 
     const validateSignupFields = async (values) => {
-        try {
-            if (state?.email && values.password) {
-                return { email: state?.email, password: values.password };
-            }
-        } catch (error) {
-            console.log('caught validateSignupFields error');
+        if (!values.password) throw Error('validateSignupFields - error - password');
+        if (state?.email && values.password) {
+            return { email: state?.email, password: values.password };
         }
     };
 
     const handelSubmit = async (values) => {
         let validSignup = await validateSignupFields(values);
         if (validSignup) {
-            let { user, error } = await handleSignup(validSignup);
-            if (error) throw error;
-            if (user) console.log('handelSubmit: ', user);
+            let user = await handleSignup(validSignup);
+            // needs to be navigate
+            return user;
         }
     };
 
