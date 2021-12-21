@@ -40,7 +40,7 @@ const PersonInterface = () => {
         const { data, error } = await supabase
             .from('persons')
             .update({ date_of_birth: dateofBirth })
-            .match({ id: id })
+            .match({ user_id: id })
             .single();
         if (error) throw error;
         return toUiPerson(data);

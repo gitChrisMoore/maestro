@@ -1,23 +1,21 @@
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import { useNavigate } from 'react-router-dom';
 
-export const usePhoneForm = () => {
-    const navigate = useNavigate();
-
+export const useConfirmForm = () => {
     const handleSubmit = async (values) => {
-        if (values) {
-            navigate('/auth/enroll/address');
-        } else alert('error: form not filled out');
+        console.log('handleSubmit', values);
     };
 
     const validationSchema = yup.object({
-        phoneNumber: yup.string().required()
+        username: yup
+            .string('Enter your firstname')
+            .min(2, 'Firstname should be more than 2 chars')
+            .required('Firstname is required')
     });
 
     const formik = useFormik({
         initialValues: {
-            phoneNumber: ''
+            username: ''
         },
         validationSchema: validationSchema,
         onSubmit: handleSubmit

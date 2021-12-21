@@ -1,13 +1,20 @@
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { useNavigate } from 'react-router-dom';
+import PersonInterface from '../../../../lib/domain/person/PersonInterface';
+import { useAuth } from '../../../../contexts/Auth';
 
 export const useNameForm = () => {
     const navigate = useNavigate();
+    const { createPerson } = PersonInterface();
+    const { user } = useAuth();
 
-    const handleSubmit = async (values) => {
-        if (values) {
-            navigate('/enroll/dateofbirth');
+    const handleSubmit = async (name) => {
+        if (name) {
+            name['user_id'] = user.id;
+            let { error } = await createPerson(name);
+            if (error) alert('error: submitting birthday');
+            else navigate('/auth/enroll/dateofbirth');
         } else alert('error: form not filled out');
     };
 

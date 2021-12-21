@@ -41,9 +41,10 @@
     "devDependencies": {
         "@emotion/react": "^11.7.1",
         "@emotion/styled": "^11.6.0",
+        "@material-ui/core": "^4.12.3",
         "@mui/icons-material": "^5.2.5",
         "@mui/material": "^5.2.5",
-        "@supabase/supabase-js": "^1.28.5",
+        "@supabase/supabase-js": "^1.28.6",
         "@testing-library/react": "^12.1.2",
         "@testing-library/react-hooks": "^7.0.2",
         "eslint": "^8.5.0",

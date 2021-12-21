@@ -17,7 +17,7 @@ jest.mock('react-router-dom', () => ({
     ...jest.requireActual('react-router-dom'),
     useLocation: () => ({
         pathname: 'localhost:3000/example/path',
-        state: { email: MOCK_EXISTING_USER_3.email }
+        state: MOCK_EXISTING_USER_3.email
     })
 }));
 
@@ -50,7 +50,9 @@ describe('usePasswordForm', () => {
         const { result } = renderHook(usePasswordForm);
         let temp_pw = { password: MOCK_EXISTING_USER_1.password };
         await act(async () => {
-            const validSignupFields = await result.current.validateSignupFields(temp_pw);
+            const validSignupFields = await result.current.validateSignupFields(
+                MOCK_EXISTING_USER_1
+            );
             expect(validSignupFields.password).toBe(MOCK_EXISTING_USER_1.password);
         });
     });
@@ -81,8 +83,7 @@ describe('usePasswordForm', () => {
 
         const { result } = renderHook(usePasswordForm);
         await act(async () => {
-            const newUser = await result.current.handelSubmit(MOCK_EXISTING_USER_3);
-            expect(newUser.id).not.toBeNull;
+            await result.current.handelSubmit(MOCK_EXISTING_USER_3);
         });
     });
 });

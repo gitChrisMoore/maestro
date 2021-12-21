@@ -10,11 +10,10 @@ export const useAddressForm = () => {
     const { user } = useAuth();
 
     const handleSubmit = async (uiAddress) => {
-        if (uiAddress) {
-            uiAddress['user_id'] = user.id;
-            await createAddress(uiAddress);
-            navigate('/enroll/confirm');
-        } else alert('error: form not filled out');
+        console.log('handleSubmit got this far');
+        console.log('createAddress', createAddress);
+        await createAddress(uiAddress);
+        // await crazyAssFieldTry(uiAddress);
     };
 
     const validationSchema = yup.object({
