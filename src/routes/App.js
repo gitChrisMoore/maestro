@@ -15,6 +15,7 @@ function App() {
                         {/* @TODO Replace with Layout */}
                         {/* <Route path="/" element={<Dashboard />}> */}
                         {/* <Route index element={<Dashboard />} /> */}
+                        <Route path="/" element={<Dashboard />} />
                         <Route path="signup/*" element={<Signup />} />
                         <Route path="/login/*" element={<Login />} />
                         <Route path="/auth/enroll/*" element={<Enroll />} />

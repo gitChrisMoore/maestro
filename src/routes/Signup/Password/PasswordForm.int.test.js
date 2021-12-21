@@ -5,7 +5,7 @@ let MOCK_USER_1 = global.MOCK_DATA_USERS.user1;
 
 describe('PhoneForm Int Tests', () => {
     it('should require all fields to be filled out before subnmission', async () => {
-        const { getByTestId } = render(<PasswordForm />);
+        const { getByTestId } = render(<PasswordForm email={MOCK_USER_1.email} />);
 
         let MOCK_USER_1_password = getByTestId('password').querySelector('input');
         let submitForm = getByTestId('submitPasswordForm');
