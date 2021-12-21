@@ -5,6 +5,12 @@ import { useNavigate } from 'react-router-dom';
 export const usePhoneForm = () => {
     const navigate = useNavigate();
 
+    const handleSubmit = async (values) => {
+        if (values) {
+            navigate('/enroll/address');
+        } else alert('error: form not filled out');
+    };
+
     const validationSchema = yup.object({
         phoneNumber: yup.string().required()
     });
@@ -14,12 +20,11 @@ export const usePhoneForm = () => {
             phoneNumber: ''
         },
         validationSchema: validationSchema,
-        onSubmit: (values) => {
-            if (values) navigate('/enroll/address');
-        }
+        onSubmit: handleSubmit
     });
 
     return {
-        formik
+        formik,
+        handleSubmit
     };
 };

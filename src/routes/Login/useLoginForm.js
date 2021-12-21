@@ -7,6 +7,13 @@ export const useLoginForm = () => {
     const navigate = useNavigate();
     const { signIn } = useAuth();
 
+    const handleSubmit = async (loginValues) => {
+        let { session, error } = await signIn(loginValues);
+        if (session) {
+            navigate('/auth/dashboard');
+        } else alert('error: ', error);
+    };
+
     const validationSchema = yup.object({
         email: yup
             .string('Enter your email')
@@ -21,14 +28,11 @@ export const useLoginForm = () => {
             password: ''
         },
         validationSchema: validationSchema,
-        onSubmit: async (loginValues) => {
-            let { session, error } = await signIn(loginValues);
-            if (error) alert('error: ', error);
-            if (session) navigate('/auth/dashboard');
-        }
+        onSubmit: handleSubmit
     });
 
     return {
-        formik
+        formik,
+        handleSubmit
     };
 };

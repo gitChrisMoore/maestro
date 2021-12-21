@@ -9,6 +9,14 @@ export const useAddressForm = () => {
     const { createAddress } = AddressInterface();
     const { user } = useAuth();
 
+    const handleSubmit = async (uiAddress) => {
+        if (uiAddress) {
+            uiAddress['user_id'] = user.id;
+            await createAddress(uiAddress);
+            navigate('/enroll/confirm');
+        } else alert('error: form not filled out');
+    };
+
     const validationSchema = yup.object({
         address1: yup.string().required(),
         city: yup.string().required(),
@@ -26,14 +34,11 @@ export const useAddressForm = () => {
             country: 'US'
         },
         validationSchema: validationSchema,
-        onSubmit: async (uiAddress) => {
-            uiAddress['user_id'] = user.id;
-            let newAddress = await createAddress(uiAddress);
-            if (newAddress) navigate('/enroll/confirm');
-        }
+        onSubmit: handleSubmit
     });
 
     return {
-        formik
+        formik,
+        handleSubmit
     };
 };

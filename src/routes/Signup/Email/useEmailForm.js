@@ -5,6 +5,13 @@ import { useNavigate } from 'react-router-dom';
 export const useEmailForm = () => {
     const navigate = useNavigate();
 
+    const handleSubmit = async (values) => {
+        if (!values?.email) {
+            throw new Error('no email found');
+        }
+        navigate('/signup/password', { state: values.email });
+    };
+
     const validationSchema = yup.object({
         email: yup
             .string('Enter your email')
@@ -17,12 +24,11 @@ export const useEmailForm = () => {
             email: ''
         },
         validationSchema: validationSchema,
-        onSubmit: (values) => {
-            if (values.email) navigate('/signup/password', { state: values.email });
-        }
+        onSubmit: handleSubmit
     });
 
     return {
-        formik
+        formik,
+        handleSubmit
     };
 };

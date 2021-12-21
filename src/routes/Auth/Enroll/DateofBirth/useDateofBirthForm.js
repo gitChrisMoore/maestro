@@ -5,6 +5,12 @@ import { useNavigate } from 'react-router-dom';
 export const useDateofBirthForm = () => {
     const navigate = useNavigate();
 
+    const handleSubmit = async (values) => {
+        if (values) {
+            navigate('/enroll/dateofbirth');
+        } else alert('error: form not filled out');
+    };
+
     const validationSchema = yup.object({
         dateofBirth: yup.date('Enter a valid Birthdate').required('Birth date is required')
     });
@@ -14,12 +20,11 @@ export const useDateofBirthForm = () => {
             dateofBirth: ''
         },
         validationSchema: validationSchema,
-        onSubmit: (values) => {
-            if (values) navigate('/enroll/phone');
-        }
+        onSubmit: handleSubmit
     });
 
     return {
-        formik
+        formik,
+        handleSubmit
     };
 };

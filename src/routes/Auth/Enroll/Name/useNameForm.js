@@ -5,6 +5,12 @@ import { useNavigate } from 'react-router-dom';
 export const useNameForm = () => {
     const navigate = useNavigate();
 
+    const handleSubmit = async (values) => {
+        if (values) {
+            navigate('/enroll/dateofbirth');
+        } else alert('error: form not filled out');
+    };
+
     const validationSchema = yup.object({
         firstName: yup
             .string('Enter your firstname')
@@ -22,12 +28,11 @@ export const useNameForm = () => {
             lastName: ''
         },
         validationSchema: validationSchema,
-        onSubmit: (values) => {
-            if (values) navigate('/enroll/dateofbirth');
-        }
+        onSubmit: handleSubmit
     });
 
     return {
-        formik
+        formik,
+        handleSubmit
     };
 };
