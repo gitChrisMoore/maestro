@@ -5,15 +5,15 @@ import * as yup from 'yup';
 import { useAuth } from '../../contexts/Auth';
 import { useNavigate } from 'react-router-dom';
 
-export function LoginForm() {
+export function SignupForm() {
     const navigate = useNavigate();
-    const { signIn } = useAuth();
+    const { signUp } = useAuth();
 
     const handleSubmit = async (loginValues) => {
-        signIn(loginValues)
+        signUp(loginValues)
             .then(({ error }) => {
                 if (error) throw new Error(error.message);
-                navigate('/auth/dashboard');
+                navigate('/auth/enroll/person');
             })
             .catch((e) => {
                 console.log(e);
@@ -39,7 +39,7 @@ export function LoginForm() {
             <Form onSubmit={formik.handleSubmit}>
                 <Field name="email" component={TextFormField} />
                 <Field name="password" component={TextFormField} />
-                <Field name="Log in" data-testid="submitForm" component={SubmitFormButton} />
+                <Field name="Sign Up" data-testid="submitForm" component={SubmitFormButton} />
             </Form>
         </FormikProvider>
     );
