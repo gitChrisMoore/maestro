@@ -25,7 +25,7 @@ export const usePasswordForm = () => {
         let validSignup = await validateSignupFields(values);
         if (validSignup) {
             let user = await handleSignup(validSignup);
-            if (user) navigate('/auth/enroll/name');
+            if (user) navigate('/auth/enroll/person');
             else console.log('error on handle submit');
         }
     };

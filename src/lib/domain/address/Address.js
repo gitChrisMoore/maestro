@@ -9,7 +9,7 @@ export const createAddress = async (newAddress) => {
     if (error) throw error;
     return toUiAddress(data);
 };
-const getAddresses = async () => {
+export const getAddresses = async () => {
     const { data, error } = await supabase.from('addresses').select('*');
     if (error) throw error;
 
@@ -18,17 +18,27 @@ const getAddresses = async () => {
     });
     return addresses;
 };
-const getAddressByID = async (id) => {
+export const getMostRecentAddress = async () => {
+    const { data, error } = await supabase
+        .from('addresses')
+        .select()
+        .order('id', { ascending: false })
+        .limit(1)
+        .single();
+    if (error) throw error;
+    return toUiAddress(data);
+};
+export const getAddressByID = async (id) => {
     const { data, error } = await supabase.from('addresses').select('*').match({ id: id }).single();
     if (error) throw error;
     return toUiAddress(data);
 };
-const deleteAddresses = async () => {
+export const deleteAddresses = async () => {
     const { data, error } = await supabase.from('addresses').delete();
     if (error) throw error;
     return data;
 };
-const deleteAddressByID = async (id) => {
+export const deleteAddressByID = async (id) => {
     const { data, error } = await supabase.from('addresses').delete().match({ id: id }).single();
     if (error) throw error;
     return data;

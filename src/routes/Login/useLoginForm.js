@@ -10,7 +10,7 @@ export const useLoginForm = () => {
     const handleSubmit = async (loginValues) => {
         let { session, error } = await signIn(loginValues);
         if (session) {
-            navigate('/auth/dashboard');
+            navigate('/auth/enroll/person');
         } else alert('error: ', error);
     };
 

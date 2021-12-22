@@ -2,19 +2,19 @@ import { TextFormField } from '../../../../lib/components/FormFields/TextFormFie
 import { SubmitFormButton } from '../../../../lib/components/FormFields/SubmitFormButton';
 import { useFormik, FormikProvider, Field, Form } from 'formik';
 import * as yup from 'yup';
-import { createAddress } from '../../../../lib/domain/address/Address';
+import { createPerson } from '../../../../lib/domain/person/Person';
 import { useAuth } from '../../../../contexts/Auth';
 import { useNavigate } from 'react-router-dom';
 
-export function AddressForm() {
+export function PersonForm() {
     const { user } = useAuth();
     const navigate = useNavigate();
 
-    const handleSubmit = async (address) => {
-        address.user_id = user.id;
-        createAddress(address)
+    const handleSubmit = async (person) => {
+        person.user_id = user.id;
+        createPerson(person)
             .then(() => {
-                navigate('/auth/enroll/review');
+                navigate('/auth/enroll/phone');
             })
             .catch((e) => {
                 console.log(e);
@@ -23,21 +23,16 @@ export function AddressForm() {
     };
 
     const validationSchema = yup.object({
-        address1: yup.string().required(),
-        address2: yup.string().required(),
-        city: yup.string().required(),
-        state: yup.string().required(),
-        postalCode: yup.string().required()
+        firstName: yup.string().required(),
+        lastName: yup.string().required(),
+        dateofBirth: yup.string().required()
     });
 
     const formik = useFormik({
         initialValues: {
-            address1: '',
-            address2: '',
-            city: '',
-            state: '',
-            postalCode: '',
-            country: 'US'
+            firstName: '',
+            lastName: '',
+            dateofBirth: ''
         },
         validationSchema: validationSchema,
         onSubmit: handleSubmit
@@ -45,11 +40,9 @@ export function AddressForm() {
     return (
         <FormikProvider value={formik}>
             <Form onSubmit={formik.handleSubmit}>
-                <Field name="address1" component={TextFormField} />
-                <Field name="address2" component={TextFormField} />
-                <Field name="city" component={TextFormField} />
-                <Field name="state" component={TextFormField} />
-                <Field name="postalCode" component={TextFormField} />
+                <Field name="firstName" component={TextFormField} />
+                <Field name="lastName" component={TextFormField} />
+                <Field name="dateofBirth" component={TextFormField} />
                 <Field name="submitForm" data-testid="submitForm" component={SubmitFormButton} />
             </Form>
         </FormikProvider>
