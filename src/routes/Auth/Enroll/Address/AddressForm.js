@@ -5,6 +5,8 @@ import * as yup from 'yup';
 import { createAddress } from '../../../../lib/domain/address/Address';
 import { useAuth } from '../../../../contexts/Auth';
 import { useNavigate } from 'react-router-dom';
+import BoxMain from '../../../../components/BoxMain/BoxMain';
+import { Grid } from '@material-ui/core';
 
 export function AddressForm() {
     const { user } = useAuth();
@@ -43,15 +45,33 @@ export function AddressForm() {
         onSubmit: handleSubmit
     });
     return (
-        <FormikProvider value={formik}>
-            <Form onSubmit={formik.handleSubmit}>
-                <Field name="address1" component={TextFormField} />
-                <Field name="address2" component={TextFormField} />
-                <Field name="city" component={TextFormField} />
-                <Field name="state" component={TextFormField} />
-                <Field name="postalCode" component={TextFormField} />
-                <Field name="submitForm" data-testid="submitForm" component={SubmitFormButton} />
-            </Form>
-        </FormikProvider>
+        <BoxMain title="Address">
+            <FormikProvider value={formik}>
+                <Form onSubmit={formik.handleSubmit}>
+                    <Grid container>
+                        <Field name="address1" component={TextFormField} />
+                        <Field name="address2" component={TextFormField} />
+                        <Grid container spacing={2}>
+                            <Grid item xs={12} sm={6}>
+                                <Field name="city" component={TextFormField} />
+                            </Grid>
+                            <Grid item xs={6} sm={3}>
+                                {/* <Box sx={{ pl: 2, pr: 2 }}> */}
+                                <Field name="state" component={TextFormField} />
+                                {/* </Box> */}
+                            </Grid>
+                            <Grid item xs={6} sm={3}>
+                                <Field name="postalCode" sx={{ xs: 2 }} component={TextFormField} />
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                    <Field
+                        name="submitForm"
+                        data-testid="submitForm"
+                        component={SubmitFormButton}
+                    />
+                </Form>
+            </FormikProvider>
+        </BoxMain>
     );
 }

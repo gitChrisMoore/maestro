@@ -16,6 +16,7 @@ export const TextFormField = ({ field, form, ...props }) => {
             margin="normal"
             helperText={errorText}
             error={!!errorText}
+            display="flex"
             // onChange={(e) => props.form.setFieldValue(props.field.name, e.target.value)}
             {...field}
             {...props}

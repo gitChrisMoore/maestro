@@ -2,7 +2,7 @@
 
 # NPM INStalls
 
-npm i --save-dev @supabase/supabase-js @mui/material @emotion/react @emotion/styled moment react-router-dom @testing-library/react @mui/icons-material yup formik nyc eslint eslint-config-prettier eslint-plugin-prettier prettier eslint-plugin-testing-library @material-ui/core
+npm i --save-dev @supabase/supabase-js @mui/material @emotion/react @emotion/styled moment react-router-dom @testing-library/react @mui/icons-material yup formik nyc eslint eslint-config-prettier eslint-plugin-prettier prettier eslint-plugin-testing-library @material-ui/core msw
 
 # ES Lint
 
@@ -30,6 +30,10 @@ update eslintrc.json to extend:
 "lint": "eslint .",
 "lint:fix": "eslint --fix",
 "format": "prettier --write './\*_/_.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
+
+# Mock Service Worker MSW
+
+npx msw init public --save
 
 # Git Stuff
 

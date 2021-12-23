@@ -4,6 +4,7 @@ import { useFormik, FormikProvider, Field, Form } from 'formik';
 import * as yup from 'yup';
 import { useAuth } from '../../contexts/Auth';
 import { useNavigate } from 'react-router-dom';
+import BoxMain from '../../components/BoxMain/BoxMain';
 
 export function LoginForm() {
     const navigate = useNavigate();
@@ -35,12 +36,14 @@ export function LoginForm() {
         onSubmit: handleSubmit
     });
     return (
-        <FormikProvider value={formik}>
-            <Form onSubmit={formik.handleSubmit}>
-                <Field name="email" component={TextFormField} />
-                <Field name="password" component={TextFormField} />
-                <Field name="Log in" data-testid="submitForm" component={SubmitFormButton} />
-            </Form>
-        </FormikProvider>
+        <BoxMain title="Login">
+            <FormikProvider value={formik}>
+                <Form onSubmit={formik.handleSubmit}>
+                    <Field name="email" component={TextFormField} />
+                    <Field name="password" component={TextFormField} />
+                    <Field name="Log in" data-testid="submitForm" component={SubmitFormButton} />
+                </Form>
+            </FormikProvider>
+        </BoxMain>
     );
 }

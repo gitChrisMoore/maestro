@@ -1,62 +1,66 @@
 {
-    "name": "maestro",
-    "version": "0.1.0",
-    "private": true,
-    "dependencies": {
-        "@testing-library/jest-dom": "^5.16.1",
-        "@testing-library/user-event": "^13.5.0",
-        "react": "^17.0.2",
-        "react-dom": "^17.0.2",
-        "react-scripts": "5.0.0",
-        "web-vitals": "^2.1.2"
-    },
-    "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build",
-        "test": "react-scripts test",
-        "coverage": "react-scripts test --coverage --watchAll",
-        "eject": "react-scripts eject",
-        "lint": "eslint .",
-        "lint:fix": "eslint --fix",
-        "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
-    },
-    "eslintConfig": {
-        "extends": [
-            "react-app",
-            "react-app/jest"
-        ]
-    },
-    "browserslist": {
-        "production": [
-            ">0.2%",
-            "not dead",
-            "not op_mini all"
-        ],
-        "development": [
-            "last 1 chrome version",
-            "last 1 firefox version",
-            "last 1 safari version"
-        ]
-    },
-    "devDependencies": {
-        "@emotion/react": "^11.7.1",
-        "@emotion/styled": "^11.6.0",
-        "@material-ui/core": "^4.12.3",
-        "@mui/icons-material": "^5.2.5",
-        "@mui/material": "^5.2.5",
-        "@supabase/supabase-js": "^1.28.6",
-        "@testing-library/react": "^12.1.2",
-        "@testing-library/react-hooks": "^7.0.2",
-        "eslint": "^8.5.0",
-        "eslint-config-prettier": "^8.3.0",
-        "eslint-plugin-prettier": "^4.0.0",
-        "eslint-plugin-react": "^7.27.1",
-        "eslint-plugin-testing-library": "^5.0.1",
-        "formik": "^2.2.9",
-        "moment": "^2.29.1",
-        "nyc": "^15.1.0",
-        "prettier": "^2.5.1",
-        "react-router-dom": "^6.2.1",
-        "yup": "^0.32.11"
-    }
+  "name": "maestro",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/user-event": "^13.5.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "5.0.0",
+    "web-vitals": "^2.1.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "coverage": "react-scripts test --coverage --watchAll",
+    "eject": "react-scripts eject",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix",
+    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@emotion/react": "^11.7.1",
+    "@emotion/styled": "^11.6.0",
+    "@material-ui/core": "^4.12.3",
+    "@mui/icons-material": "^5.2.5",
+    "@mui/material": "^5.2.5",
+    "@supabase/supabase-js": "^1.29.0",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/react-hooks": "^7.0.2",
+    "eslint": "^8.5.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.27.1",
+    "eslint-plugin-testing-library": "^5.0.1",
+    "formik": "^2.2.9",
+    "moment": "^2.29.1",
+    "msw": "^0.36.3",
+    "nyc": "^15.1.0",
+    "prettier": "^2.5.1",
+    "react-router-dom": "^6.2.1",
+    "yup": "^0.32.11"
+  },
+  "msw": {
+    "workerDirectory": "public"
+  }
 }

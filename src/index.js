@@ -4,6 +4,11 @@ import ReactDOM from 'react-dom';
 import App from './routes/App';
 // import reportWebVitals from './reportWebVitals';
 
+if (process.env.NODE_ENV === 'developmenta') {
+    const { worker } = require('./mocks/browser');
+    worker.start();
+}
+
 ReactDOM.render(
     <React.StrictMode>
         <App />
